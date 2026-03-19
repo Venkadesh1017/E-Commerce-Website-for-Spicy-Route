@@ -1,0 +1,165 @@
+ ***************************Index Of The HTML Code*********************
+
+
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Route — Authentic Indian Food</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Spicyyy<span>Route</span> 🌶️</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('products')">Menu</a></li>
+            <li><a href="#" onclick="showPage('cart')">Cart</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="btn-login" onclick="showPage('login')">Login</button>
+            <button class="cart-btn" onclick="showPage('cart')">
+                🛒 Cart <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div class="hero-text">
+                <div class="hero-badge">🌿 Farm Fresh · Delivered Daily</div>
+                <h1>Taste the <em>Real</em> Flavours of India</h1>
+                <p>Authentic recipes, chef-crafted with traditional spices. Hot food delivered to your door in 30
+                    minutes.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="showPage('products')">Explore Menu →</button>
+                    <button class="btn-ghost">Watch Story</button>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <div class="stat-num">50+</div>
+                        <div class="stat-label">Dishes</div>
+                    </div>
+                    <div>
+                        <div class="stat-num">4.9★</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                    <div>
+                        <div class="stat-num">30min</div>
+                        <div class="stat-label">Delivery</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="food-card-hero" onclick="showPage('products')">
+                    <span class="food-emoji">🍛</span>
+                    <h3>Chicken Biryani</h3>
+                    <div class="price">₹280</div>
+                </div>
+                <div class="food-card-hero" onclick="showPage('products')">
+                    <span class="food-emoji">🥘</span>
+                    <h3>Butter Paneer</h3>
+                    <div class="price">₹220</div>
+                </div>
+                <div class="food-card-hero" onclick="showPage('products')">
+                    <span class="food-emoji">🫓</span>
+                    <h3>Garlic Naan</h3>
+                    <div class="price">₹60</div>
+                </div>
+                <div class="food-card-hero" onclick="showPage('products')">
+                    <span class="food-emoji">🍮</span>
+                    <h3>Gulab Jamun</h3>
+                    <div class="price">₹90</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="products" class="page">
+        <div class="section">
+            <div class="section-title">Our Menu</div>
+            <div class="section-sub">Freshly prepared with love & tradition</div>
+            <div class="categories">
+                <button class="cat-btn active" onclick="filterProducts('all', this)">All</button>
+                <button class="cat-btn" onclick="filterProducts('rice', this)">🍚 Rice & Biryani</button>
+                <button class="cat-btn" onclick="filterProducts('curry', this)">🥘 Curries</button>
+                <button class="cat-btn" onclick="filterProducts('bread', this)">🫓 Breads</button>
+                <button class="cat-btn" onclick="filterProducts('dessert', this)">🍮 Desserts</button>
+                <button class="cat-btn" onclick="filterProducts('drinks', this)">🥤 Drinks</button>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+    </div>
+
+    <!-- CART PAGE -->
+    <div id="cart" class="page">
+        <div style="padding: 2rem 5% 0">
+            <h2 style="font-family:'Playfair Display',serif; font-size:2rem;">Your Cart 🛒</h2>
+        </div>
+        <div class="cart-layout" id="cartLayout"></div>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div id="login" class="page">
+        <div class="auth-container">
+            <div class="auth-box">
+                <div class="auth-logo">Spice<span>Route</span> 🌶️</div>
+                <div class="auth-tagline">Sign in to continue your food journey</div>
+                <div class="auth-tabs">
+                    <button class="auth-tab active" onclick="switchTab('login-form', this)">Login</button>
+                    <button class="auth-tab" onclick="switchTab('signup-form', this)">Sign Up</button>
+                </div>
+                <div id="login-form">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    <button class="btn-submit" onclick="fakeLogin()">Login to Account</button>
+                    <div class="divider"><span>or continue with</span></div>
+                    <button class="btn-ghost" style="width:100%; padding:0.75rem;" onclick="fakeLogin()">🔑 Continue
+                        with Google</button>
+                </div>
+                <div id="signup-form" style="display:none">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+91 98765 43210">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="Create a strong password">
+                    </div>
+                    <button class="btn-submit" onclick="fakeLogin()">Create Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">✅ <span id="toastMsg"></span></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
